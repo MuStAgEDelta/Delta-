@@ -1,0 +1,83 @@
+import java.awt.event.InputEvent;
+import java.lang.Thread;
+import java.util.Scanner;
+//danke an Fishli
+class autoklicker{
+	//Delta
+
+	public static void main (String[] args){
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("Pleas give a number of klicks and then klick the klicks on your screen: ");
+		int Anzahl_klicks = scanner.nextInt();
+			// if (Anzahl_klicks >50)
+				//Syszem.out.print("to high 
+		System.out.print(" give The Coordination from the poits Start with Point 1 X: ");
+		//for Anzahl_klicks erstelle ints Lösung mit array?
+		int Position_1_x = scanner.nextInt();
+		System.out.print(" Point 1 Y: ");
+		int Position_1_y = scanner.nextInt();
+		// How often 
+		System.out.print(" Point 2 X: ");
+		int Position_2_x = scanner.nextInt();
+		System.out.print(" Point 2 Y: ");
+		int Position_2_y = scanner.nextInt();
+		System.out.print(" Point 3 X: ");
+		int Position_3_x = scanner.nextInt();
+		System.out.print(" Point 3 Y: ");
+		int Position_3_y = scanner.nextInt();
+		System.out.print(" Point 4 X: ");
+		int Position_4_x = scanner.nextInt();
+		System.out.print(" Point 4 Y: ");
+		int Position_4_y = scanner.nextInt();
+		
+		
+		
+		//eigabe wie oft durchgeführt 
+		System.out.print("give a number how often the program should be executed");
+		int stop = scanner.nextInt();
+		//eingabe wann starten 
+		System.out.print("Give a Numbre in sekunden (1-20) when the Autoklicker shoud start:  ");
+		int Sleep = scanner.nextInt();
+		if ( Sleep < 1) {
+				System.out.print("Your entry is too big / small");
+				return;
+				}
+				if ( Sleep > 20) {
+				System.out.print("Your entry is too big ");
+				return;
+				}
+				
+		int Sleep_m = Sleep*1000;
+				
+		
+		//gibt Sleep sekunden Zeit 
+		try {
+			Thread.sleep(Sleep_m);
+		}	catch(Exception e) {
+				e.printStackTrace();
+		}
+		int delay = 100;
+		AutoClicker clicker = new AutoClicker();
+		clicker.setDelay(delay);
+		
+		for (int o= 0; o < stop; o++){
+			clicker.moveMouse ( Position_1_x, Position_1_y);
+			clicker.klickerMouse (InputEvent.BUTTON1_DOWN_MASK);
+			clicker.moveMouse ( Position_2_x, Position_2_y);
+			clicker.klickerMouse (InputEvent.BUTTON1_DOWN_MASK);
+			clicker.moveMouse ( Position_3_x, Position_3_y);
+			clicker.klickerMouse (InputEvent.BUTTON1_DOWN_MASK);
+			clicker.moveMouse ( Position_4_x, Position_4_y);
+			clicker.klickerMouse (InputEvent.BUTTON1_DOWN_MASK);
+			
+		}
+		System.out.println(" finished");
+		
+
+}
+
+
+
+
+}
