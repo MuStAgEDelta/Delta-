@@ -1,0 +1,41 @@
+import java.awt.Robot;
+
+class AutoClicker {
+    //Delta
+		//erstellung objekt
+		private Robot robot;
+		private int delay;
+		
+		public AutoClicker(){
+			try {
+				robot = new Robot();
+			}
+			catch (Exception e) {
+					e.printStackTrace();
+			}
+			delay = 100;
+		}
+		
+		public void klickerMouse(int button){
+			try{
+			robot.mousePress(button);
+			robot.delay(100);
+			robot.mouseRelease(button);
+			robot.delay(delay);
+			}catch (Exception e) {
+			e.printStackTrace();
+		
+			}
+		}
+		public void moveMouse(int x, int y) {
+			robot.mouseMove(x,y);
+			robot.delay(delay);
+		}
+			
+		public void	setDelay(int ms) {
+			this.delay= ms;
+		}
+		
+		
+		
+}
